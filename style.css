@@ -9,6 +9,7 @@ body {
     /* aligning horizontally */
     display: flex;
     flex-direction: column; 
+    height: 100vh;
 }
 
 .board {
@@ -17,11 +18,12 @@ body {
     max-width: 700px;
     border: 1px solid rgb(151, 145, 145);
     display: grid;
-    grid-template-columns: repeat(9, auto);
+    grid-template-columns: repeat(8, 1fr); /* Had to change this from auto to 1fr for equal distribution */
 }
 
-.cell {
-    background-color: #f1d89d;
+.square {
+    background-color: #f0d9b5;
+    /* background-color: #ba8c66; */
     color: white;
     align-items: center; /* aligning horizontally */
     aspect-ratio: 1 / 1; /* Ensure square aspect ratio */
@@ -32,6 +34,7 @@ body {
 }
 
 
-.cell:hover {
+.square:hover {
     background-color: #e9c572;
+    cursor: pointer;
 }
