@@ -29,24 +29,24 @@ class Board {
 
     setupPieces () {
         // pushing for the white pieces
-        this.whites.push(new Pawn(6,0, false, "P",false, "thing.jpg"));
-        this.whites.push(new Pawn(6,1, false, "P",false, "thing.jpg"));
-        this.whites.push(new Pawn(6,2, false, "P",false, "thing.jpg"));
-        this.whites.push(new Pawn(6,3, false, "P",false, "thing.jpg"));
-        this.whites.push(new Pawn(6,4, false, "P",false, "thing.jpg"));
-        this.whites.push(new Pawn(6,5, false, "P",false, "thing.jpg"));
-        this.whites.push(new Pawn(6,6, false, "P",false, "thing.jpg"));
-        this.whites.push(new Pawn(6,7, false, "P",false, "thing.jpg"));
+        this.whites.push(new Pawn(6,0, false, "P",false, "assets/0.svg"));
+        this.whites.push(new Pawn(6,1, false, "P",false, "assets/0.svg"));
+        this.whites.push(new Pawn(6,2, false, "P",false, "assets/0.svg"));
+        this.whites.push(new Pawn(6,3, false, "P",false, "assets/0.svg"));
+        this.whites.push(new Pawn(6,4, false, "P",false, "assets/0.svg"));
+        this.whites.push(new Pawn(6,5, false, "P",false, "assets/0.svg"));
+        this.whites.push(new Pawn(6,6, false, "P",false, "assets/0.svg"));
+        this.whites.push(new Pawn(6,7, false, "P",false, "assets/0.svg"));
 
 
-        this.whites.push(new Rook(7,0, false, "R",false, "thing.jpg"));
-        this.whites.push(new Rook(7,7, false, "R",false, "thing.jpg"));
-        this.whites.push(new Knight(7,1,false, "Kn", false, "thing.jpg"));
-        this.whites.push(new Knight(7,6,false, "Kn", false, "thing.jpg"));
-        this.whites.push(new Bishop(7,2,false, "B", false, "thing.jpg"));
-        this.whites.push(new Bishop(7,5,false, "B", false, "thing.jpg"));
-        this.whites.push(new Queen(7,3,false, "Q", false, "thing.jpg"));
-        this.whites.push(new King(7,4,false, "K", false, "thing.jpg"));
+        this.whites.push(new Rook(7,0, false, "R",false, "assets/1.svg"));
+        this.whites.push(new Rook(7,7, false, "R",false, "assets/1.svg"));
+        this.whites.push(new Knight(7,1,false, "Kn", false, "assets/2.svg"));
+        this.whites.push(new Knight(7,6,false, "Kn", false, "assets/2.svg"));
+        this.whites.push(new Bishop(7,2,false, "B", false, "assets/3.svg"));
+        this.whites.push(new Bishop(7,5,false, "B", false, "assets/3.svg"));
+        this.whites.push(new Queen(7,3,false, "Q", false, "assets/4.svg"));
+        this.whites.push(new King(7,4,false, "K", false, "assets/5.svg"));
 
 
         
@@ -56,6 +56,8 @@ class Board {
         for(let i=0; i<this.whites.length; i++) {
             this.whites[i].show();
         }
+        console.log(this.whites[7])
+        this.whites[7].update(3,3);
     }
 }
 

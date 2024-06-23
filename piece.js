@@ -1,23 +1,28 @@
 class Piece {
 
-    constructor (y, x, taken, letter, isWhite) {
+    constructor (y, x, taken, letter, isWhite, pic) {
         this.x = x;
         this.y = y;
         this.taken = taken;
         this.isWhite = isWhite;
+        this.pic = pic;
     }
 
     show() {
         if (!this.taken) {
-            console.log("chut");
-            // remove, delete, whatever
-
-            // find the required 
-
             let cell = document.querySelector(`[x="${this.x}"][y="${this.y}"]`);
-            console.log(cell);
-            cell.textContent = this.letter;
+            // cell.textContent = this.letter;
+
+            var img = document.createElement("img");
+            img.setAttribute("class", "piece");
+            img.setAttribute("src", this.pic);
+            cell.appendChild(img);
         }
+    }
+
+    unshow() {
+        let cell = document.querySelector(`[x="${this.x}"][y="${this.y}"]`);
+        cell.textContent = "";
     }
 };
 
@@ -27,31 +32,40 @@ class Piece {
 
 class Pawn extends Piece {
     constructor(y,x, taken,letter, isWhite, pic) {
-        super(y,x, taken, letter, isWhite);
+        super(y,x, taken, letter, isWhite,pic);
         this.pic = pic;
         this.letter = "P";
     }
 
     // All legal moves
-    canMove(x,y) {
+    canMove(y,x) {
+        let possibleMoves = [];
+        possibleMoves.push(y+1, x);
+
+        return possibleMoves;
     }
 
     // for actually moving the piece
-    Move(x,y) {
+    update(y,x) {
+        this.unshow();
 
+        this.y = y;
+        this.x = x;
+
+        this.show();
     }
 };
 
 class Rook extends Piece {
 
     constructor(y,x, taken,letter, isWhite, pic) {
-        super(y,x, taken, letter, isWhite);
+        super(y,x, taken, letter, isWhite,pic);
         this.pic = pic;
         this.letter = letter;
     }
 
     //All legal moves
-    canMove(x,y) {
+    canMove(y,x) {
         // needs to return an array of all legal moves
 
         let possibleMoves = [];
@@ -75,7 +89,7 @@ class Rook extends Piece {
 
 class Knight extends Piece {
     constructor(y,x, taken,letter, isWhite, pic) {
-        super(y,x, taken, letter, isWhite);
+        super(y,x, taken, letter, isWhite,pic);
         this.pic = pic;
         this.letter = letter;
     }
@@ -84,7 +98,7 @@ class Knight extends Piece {
 
 class Bishop extends Piece {
     constructor(y,x, taken,letter, isWhite, pic) {
-        super(y,x, taken, letter, isWhite);
+        super(y,x, taken, letter, isWhite,pic);
         this.pic = pic;
         this.letter = letter;
     }
@@ -93,7 +107,7 @@ class Bishop extends Piece {
 
 class Queen extends Piece {
     constructor(y,x, taken,letter, isWhite, pic) {
-        super(y,x, taken, letter, isWhite);
+        super(y,x, taken, letter, isWhite,pic);
         this.pic = pic;
         this.letter = letter;
     }
@@ -102,7 +116,7 @@ class Queen extends Piece {
 
 class King extends Piece {
     constructor(y,x, taken,letter, isWhite, pic) {
-        super(y,x, taken, letter, isWhite);
+        super(y,x, taken, letter, isWhite,pic);
         this.pic = pic;
         this.letter = letter;
     }
